@@ -526,71 +526,6 @@ const StickyCTA = () => (
   </div>
 );
 
-const Popup = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState('');
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
-      if (!hasSeenPopup) {
-        setIsVisible(true);
-      }
-    }, 5000); // 5 seconds delay
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleClose = () => {
-    setIsVisible(false);
-    sessionStorage.setItem('hasSeenPopup', 'true');
-  };
-
-  if (!isVisible) return null;
-
-  return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
-      <motion.div 
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        className="bg-white rounded-[3rem] p-10 max-w-lg w-full relative overflow-hidden"
-      >
-        <div className="absolute top-0 right-0 p-6">
-          <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-400 hover:text-gray-900">
-            <X size={24} />
-          </button>
-        </div>
-        
-        <div className="mb-8">
-          <div className="w-16 h-16 bg-orange-50 rounded-3xl flex items-center justify-center text-brand-orange mb-6">
-            <Mail size={32} />
-          </div>
-          <h2 className="text-3xl font-bold mb-4">Get the Omix Plus Product Guide</h2>
-          <p className="text-gray-600">
-            Download our comprehensive PDF guide covering roast science, ROI analysis, and full technical specifications.
-          </p>
-        </div>
-        
-        <form onSubmit={(e) => { e.preventDefault(); handleClose(); }} className="space-y-4">
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
-            required
-            className="w-full p-4 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-brand-orange outline-none transition-all"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit" className="w-full btn-primary py-4">
-            Send My Product Guide
-          </button>
-          <p className="text-center text-[10px] text-gray-400 uppercase font-bold tracking-widest">
-            Privacy Guaranteed • Limited Time Offer
-          </p>
-        </form>
-      </motion.div>
-    </div>
-  );
-};
-
 // --- Main App ---
 
 export default function App() {
@@ -611,7 +546,6 @@ export default function App() {
       </main>
       <Footer />
       <StickyCTA />
-      <Popup />
     </div>
   );
 }
