@@ -25,7 +25,10 @@ import {
   Scale,
   Maximize2,
   Minimize2,
-  Mail
+  Mail,
+  Instagram,
+  Linkedin,
+  MessageCircle
 } from 'lucide-react';
 import { cn } from './lib/utils';
 
@@ -491,21 +494,48 @@ const CTASection = () => (
 );
 
 const Footer = () => (
-  <footer className="py-12 px-6 border-t border-gray-100 bg-gray-50/50">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-      <div className="flex flex-col items-center md:items-start gap-4">
-        <img 
-          src="/activo_logo.png" 
-          alt="Activo Logo" 
-          className="h-10 opacity-70 grayscale"
-          referrerPolicy="no-referrer"
-        />
-        <p className="text-sm text-gray-500">© 2026 Activo Technology Limited. Authorized DiFluid Distributor.</p>
+  <footer id="contact" className="py-16 px-6 border-t border-gray-100 bg-gray-50/50">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-12 mb-12">
+        <div className="flex flex-col items-center md:items-start gap-6">
+          <img 
+            src="/activo_logo.png" 
+            alt="Activo Logo" 
+            className="h-10 opacity-70 grayscale"
+            referrerPolicy="no-referrer"
+          />
+          <p className="text-gray-500 max-w-sm text-center md:text-left">
+            Activo Technology is the authorized distributor of DiFluid, 
+            providing lab-level precision tools for the specialty coffee industry.
+          </p>
+          <div className="flex gap-4">
+            <a href="https://wa.me/8613409160140" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-brand-orange hover:border-brand-orange transition-all" title="WhatsApp"><MessageCircle size={18} /></a>
+            <a href="https://www.instagram.com/larry570430/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-brand-orange hover:border-brand-orange transition-all" title="Instagram"><Instagram size={18} /></a>
+            <a href="https://www.linkedin.com/in/nicole-zhang-43120a112/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-brand-orange hover:border-brand-orange transition-all" title="LinkedIn"><Linkedin size={18} /></a>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Solutions</h4>
+            <div className="flex flex-col gap-4 text-sm text-gray-600">
+              <a href="https://activo-tech.com" target="_blank" className="hover:text-brand-orange transition-colors">Official Website</a>
+              <a href="https://activo-tech.com/contact-us-for-an-exclusive-offer/" className="hover:text-brand-orange transition-colors">Exclusive Offer</a>
+              <a href="https://calendly.com/larry-chow" className="hover:text-brand-orange transition-colors">Book a Demo</a>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Support</h4>
+            <div className="flex flex-col gap-4 text-sm text-gray-600">
+              <a href="https://activo-tech.com/contact-us-for-an-exclusive-offer/" className="hover:text-brand-orange transition-colors">Contact Us</a>
+              <a href="https://activo-tech.com/wp-content/uploads/2025/11/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-brand-orange transition-colors">Privacy Policy</a>
+              <a href="https://activo-tech.com/wp-content/uploads/2025/11/Terms-of-Service.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-brand-orange transition-colors">Terms of Service</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-8 text-sm font-medium text-gray-600">
-        <a href="https://activo-tech.com" target="_blank" className="hover:text-brand-orange">Official Website</a>
-        <a href="https://activo-tech.com/contact-us-for-an-exclusive-offer/" className="hover:text-brand-orange">Exclusive Offer</a>
-        <a href="https://calendly.com/larry-chow" className="hover:text-brand-orange">Live Demo</a>
+      <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-xs text-gray-400">© 2026 Activo Technology Limited. All Rights Reserved.</p>
+        <p className="text-xs text-gray-400">DiFluid Omix Plus - Authorized Distribution Site</p>
       </div>
     </div>
   </footer>
