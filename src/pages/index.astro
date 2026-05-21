@@ -25,12 +25,15 @@ import '../index.css';
     <meta property="twitter:url" content="https://omixplus.activo-tech.com/" />
     <meta property="twitter:title" content="Omix Plus | Scientific Coffee Analysis" />
     <meta property="twitter:image" content="https://omixplus.activo-tech.com/omix_device.avif" />
-    <link rel="preload" as="image" href="/omix_device.avif" /> 
+    <link rel="preload" as="image" href="/omix_device.avif" type="image/avif" /> 
 
     <!-- Performance: Preconnect to external resource domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={""} />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    </noscript>
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
