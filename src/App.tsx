@@ -130,7 +130,7 @@ const Hero = () => {
         >
           <div className="absolute -inset-10 bg-brand-orange/20 blur-[100px] rounded-full pointer-events-none" />
           <img 
-            src="/omix_device.png" 
+            src="/omix_device.avif" 
             alt="Omix Plus Device Internal" 
             className="w-full max-w-2xl mx-auto drop-shadow-2xl relative z-10 h-auto"
             width={640}
