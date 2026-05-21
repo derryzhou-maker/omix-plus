@@ -29,7 +29,8 @@ import '../index.css';
 
     <!-- Performance: Preconnect to external resource domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={""} />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -41,6 +42,58 @@ import '../index.css';
     </script>
   </head>
   <body>
-    <App client:load />
+    <App />
+
+    <!-- Pure micro-interaction script with 0KB performance overhead -->
+    <script is:inline>
+      (function() {
+        // Navigation Scroll Logic
+        const nav = document.getElementById('main-nav');
+        if (nav) {
+          const links = nav.querySelectorAll('.nav-link');
+          const logo = nav.querySelector('.partner-logo');
+
+          const updateNav = () => {
+            if (window.scrollY > 50) {
+              nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+              nav.classList.remove('bg-transparent', 'py-4');
+              links.forEach(l => {
+                l.classList.add('text-gray-600', 'hover:text-brand-orange');
+                l.classList.remove('text-white/80', 'hover:text-white');
+              });
+              if (logo) {
+                logo.classList.remove('invert');
+                logo.classList.add('brightness-0');
+              }
+            } else {
+              nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+              nav.classList.add('bg-transparent', 'py-4');
+              links.forEach(l => {
+                l.classList.remove('text-gray-600', 'hover:text-brand-orange');
+                l.classList.add('text-white/80', 'hover:text-white');
+              });
+              if (logo) {
+                logo.classList.add('invert');
+                logo.classList.remove('brightness-0');
+              }
+            }
+          };
+
+          window.addEventListener('scroll', updateNav, { passive: true });
+          updateNav();
+        }
+
+        // Lazy load click interactions for all YouTube video sections
+        const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+        videoPlaceholders.forEach(function(placeholder) {
+          placeholder.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            if (videoId) {
+              this.innerHTML = '<iframe class="w-full h-full absolute inset-0 rounded-3xl" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>';
+            }
+          }, { once: true });
+        });
+      })();
+    </script>
   </body>
 </html>

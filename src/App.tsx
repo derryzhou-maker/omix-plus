@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
 import { 
   ChevronRight, 
   CheckCircle2, 
@@ -35,43 +34,34 @@ import { cn } from './lib/utils';
 // --- Components ---
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent"
-    )}>
+    <nav id="main-nav" className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 bg-transparent">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-8">
           <img 
             src="/activo_logo.png" 
             alt="Activo Technology Logo" 
-            className="h-10 object-contain w-auto"
+            className="h-10 object-contain w-auto logo-img transition-all duration-300"
             width={120}
             height={40}
+            loading="eager"
             referrerPolicy="no-referrer"
           />
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <a href="#features" className={isScrolled ? "text-gray-600 hover:text-brand-orange" : "text-white/80 hover:text-white"}>Features</a>
-            <a href="#video" className={isScrolled ? "text-gray-600 hover:text-brand-orange" : "text-white/80 hover:text-white"}>Demo</a>
-            <a href="#comparison" className={isScrolled ? "text-gray-600 hover:text-brand-orange" : "text-white/80 hover:text-white"}>Comparison</a>
-            <a href="#faq" className={isScrolled ? "text-gray-600 hover:text-brand-orange" : "text-white/80 hover:text-white"}>FAQ</a>
+            <a href="#features" className="nav-link text-white/80 hover:text-white transition-colors duration-200">Features</a>
+            <a href="#video" className="nav-link text-white/80 hover:text-white transition-colors duration-200">Demo</a>
+            <a href="#comparison" className="nav-link text-white/80 hover:text-white transition-colors duration-200">Comparison</a>
+            <a href="#faq" className="nav-link text-white/80 hover:text-white transition-colors duration-200">FAQ</a>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <img 
             src="/difluid_logo.png" 
             alt="DiFluid Logo" 
-            className={cn("h-6 object-contain hidden sm:block w-auto", isScrolled ? "brightness-0" : "invert")}
+            className="h-6 object-contain hidden sm:block w-auto partner-logo invert transition-all duration-300"
             width={80}
             height={24}
+            loading="eager"
             referrerPolicy="no-referrer"
           />
           <a 
@@ -92,11 +82,7 @@ const Hero = () => {
       <div className="hero-gradient absolute inset-0 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="animate-fade-in-up">
           <div className="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-brand-orange text-xs font-bold uppercase tracking-wider mb-6">
             Trusted by Specialty Roasters
           </div>
@@ -120,14 +106,9 @@ const Hero = () => {
           <p className="mt-8 text-sm text-gray-300 font-medium italic">
             "Bringing lab-level precision to every roaster." — SCA
           </p>
-        </motion.div>
+        </div>
         
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative"
-        >
+        <div className="relative animate-fade-in-scale">
           <div className="absolute -inset-10 bg-brand-orange/20 blur-[100px] rounded-full pointer-events-none" />
           <img 
             src="/omix_device.avif" 
@@ -138,7 +119,7 @@ const Hero = () => {
             loading="eager"
             referrerPolicy="no-referrer"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -153,15 +134,21 @@ const VideoSection = () => {
           Watch how coffee professionals analyze roast consistency and detect issues instantly with the Omix Plus.
         </p>
         
-        <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl relative group bg-black">
-          <iframe 
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/-NqwXnXbJJw" 
-            title="Omix Plus Demo"
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          />
+        <div 
+          id="youtube-player-1"
+          data-video-id="-NqwXnXbJJw"
+          className="video-placeholder aspect-video w-full rounded-3xl overflow-hidden shadow-2xl relative group bg-black cursor-pointer"
+        >
+          <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-80" style={{ backgroundImage: "url('https://img.youtube.com/vi/-NqwXnXbJJw/maxresdefault.jpg')" }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10 transition-opacity duration-300 group-hover:opacity-40" />
+          
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-orange text-white rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-300 group-hover:scale-110 active:scale-95 group-hover:bg-orange-600 relative z-10 font-sans font-bold">
+              <span className="ml-1 text-2xl sm:text-3xl">▶</span>
+            </div>
+          </div>
+          
+          <div className="absolute inset-0 bg-brand-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl" />
         </div>
       </div>
     </section>
@@ -197,10 +184,9 @@ const CoreValues = () => (
             label: "Yield Optimization"
           }
         ].map((val, i) => (
-          <motion.div 
+          <div 
             key={i}
-            whileHover={{ y: -10 }}
-            className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
+            className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
           >
             <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-brand-orange mb-6">
               <val.icon size={28} />
@@ -208,7 +194,7 @@ const CoreValues = () => (
             <h3 className="text-2xl font-bold mb-4">{val.title}</h3>
             <p className="text-gray-600 leading-relaxed mb-6">{val.desc}</p>
             <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">{val.label}</span>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
@@ -325,15 +311,19 @@ const DataShowcase = () => (
         </div>
         
         <div className="mt-8 group">
-          <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl relative bg-black border border-white/10 group-hover:border-brand-orange/50 transition-colors duration-500">
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/5n7StiWs03Q" 
-              title="Everything You Need To Know About DiFluid Omix"
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
+          <div 
+            id="youtube-player-2"
+            data-video-id="5n7StiWs03Q"
+            className="video-placeholder aspect-video w-full rounded-3xl overflow-hidden shadow-2xl relative bg-black cursor-pointer border border-white/10 group-hover:border-brand-orange/50 transition-colors duration-500"
+          >
+            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-70" style={{ backgroundImage: "url('https://img.youtube.com/vi/5n7StiWs03Q/maxresdefault.jpg')" }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+            
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 bg-brand-orange text-white rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110 active:scale-95 group-hover:bg-orange-600 font-sans font-bold">
+                <span className="ml-1 text-2xl">▶</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -419,8 +409,6 @@ const ROISection = () => (
 );
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   const faqs = [
     {
       q: "Is this suitable for small roasters?",
@@ -446,29 +434,19 @@ const FAQ = () => {
         <h2 className="text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-              <button 
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full p-6 text-left flex items-center justify-between font-bold hover:bg-gray-50 transition-colors"
-              >
-                {faq.q}
-                <ChevronDown className={cn("transition-transform duration-300", openIndex === i ? "rotate-180" : "")} />
-              </button>
-              <AnimatePresence>
-                {openIndex === i && (
-                  <motion.div 
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-6 pt-0 text-gray-600 leading-relaxed">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <details 
+              key={i} 
+              className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm group"
+              open={i === 0}
+            >
+              <summary className="w-full p-6 text-left flex items-center justify-between font-bold hover:bg-gray-50 transition-colors list-none cursor-pointer select-none [&::-webkit-details-marker]:hidden">
+                <span>{faq.q}</span>
+                <ChevronDown className="transition-transform duration-300 group-open:rotate-180" size={20} />
+              </summary>
+              <div className="p-6 pt-0 text-gray-600 leading-relaxed">
+                {faq.a}
+              </div>
+            </details>
           ))}
         </div>
       </div>
@@ -481,12 +459,7 @@ const CTASection = () => (
     <div className="max-w-7xl mx-auto">
       <div className="relative rounded-[3rem] overflow-hidden bg-[#050505] p-12 md:p-24 text-center">
         <div className="absolute inset-0 bg-brand-orange/10 pointer-events-none" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative z-10"
-        >
+        <div className="relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Ready to Elevate Your Roasting?</h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Book a 15-minute free live demo to see how Omix Plus fits into your professional workflow.
@@ -500,10 +473,10 @@ const CTASection = () => (
             </a>
           </div>
           <div className="mt-16 pt-16 border-t border-white/5 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-          <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain invert hue-rotate-180 w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
-          <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain invert w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
+            <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain invert hue-rotate-180 w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
+            <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain invert w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   </section>
@@ -562,16 +535,12 @@ const Footer = () => (
 
 const StickyCTA = () => (
   <div className="fixed bottom-8 right-8 z-[100] hidden sm:block">
-    <motion.a 
+    <a 
       href="https://activo-tech.com/contact-us-for-an-exclusive-offer/"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="flex items-center gap-3 bg-brand-orange text-white py-4 px-8 rounded-full shadow-[0_10px_30px_rgba(242,125,38,0.4)] font-bold text-sm uppercase tracking-wider"
+      className="flex items-center gap-3 bg-brand-orange text-white py-4 px-8 rounded-full shadow-[0_10px_30px_rgba(242,125,38,0.4)] font-bold text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300"
     >
       <ArrowRight size={16} /> Get Pricing
-    </motion.a>
+    </a>
   </div>
 );
 
