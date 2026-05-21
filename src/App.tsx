@@ -53,7 +53,9 @@ const Navbar = () => {
           <img 
             src="/activo_logo.png" 
             alt="Activo Technology Logo" 
-            className="h-10 object-contain"
+            className="h-10 object-contain w-auto"
+            width={120}
+            height={40}
             referrerPolicy="no-referrer"
           />
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -67,7 +69,9 @@ const Navbar = () => {
           <img 
             src="/difluid_logo.png" 
             alt="DiFluid Logo" 
-            className={cn("h-6 object-contain hidden sm:block", isScrolled ? "brightness-0" : "invert")}
+            className={cn("h-6 object-contain hidden sm:block w-auto", isScrolled ? "brightness-0" : "invert")}
+            width={80}
+            height={24}
             referrerPolicy="no-referrer"
           />
           <a 
@@ -128,7 +132,10 @@ const Hero = () => {
           <img 
             src="/omix_device.png" 
             alt="Omix Plus Device Internal" 
-            className="w-full max-w-2xl mx-auto drop-shadow-2xl relative z-10"
+            className="w-full max-w-2xl mx-auto drop-shadow-2xl relative z-10 h-auto"
+            width={640}
+            height={640}
+            loading="eager"
             referrerPolicy="no-referrer"
           />
         </motion.div>
@@ -149,7 +156,7 @@ const VideoSection = () => {
         <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl relative group bg-black">
           <iframe 
             className="w-full h-full"
-            src="https://www.youtube.com/embed/2WRku46clLI" 
+            src="https://www.youtube.com/embed/-NqwXnXbJJw" 
             title="Omix Plus Demo"
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -288,7 +295,10 @@ const DataShowcase = () => (
         <img 
           src="/app_interface.png" 
           alt="App Interface" 
-          className="relative z-10 w-full max-w-md mx-auto drop-shadow-[0_20px_50px_rgba(242,125,38,0.3)]"
+          className="relative z-10 w-full max-w-md mx-auto drop-shadow-[0_20px_50px_rgba(242,125,38,0.3)] h-auto"
+          width={448}
+          height={500}
+          loading="lazy"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -376,7 +386,10 @@ const ROISection = () => (
             <img 
               src="/difluid_logo.png" 
               alt="DiFluid Logo" 
-              className="h-6 opacity-30 brightness-0"
+              className="h-6 opacity-30 brightness-0 w-auto"
+              width={80}
+              height={24}
+              loading="lazy"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -390,6 +403,9 @@ const ROISection = () => (
               src="/auth_letter.png" 
               alt="DiFluid Official Authorization Letter" 
               className="w-full h-auto"
+              width={460}
+              height={600}
+              loading="lazy"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -484,8 +500,8 @@ const CTASection = () => (
             </a>
           </div>
           <div className="mt-16 pt-16 border-t border-white/5 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-          <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain invert hue-rotate-180" referrerPolicy="no-referrer" />
-          <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain invert" referrerPolicy="no-referrer" />
+          <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain invert hue-rotate-180 w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
+          <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain invert w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
           </div>
         </motion.div>
       </div>
@@ -501,7 +517,10 @@ const Footer = () => (
           <img 
             src="/activo_logo.png" 
             alt="Activo Logo" 
-            className="h-10 opacity-70 grayscale"
+            className="h-10 opacity-70 grayscale w-auto"
+            width={120}
+            height={40}
+            loading="lazy"
             referrerPolicy="no-referrer"
           />
           <p className="text-gray-500 max-w-sm text-center md:text-left">
@@ -587,12 +606,12 @@ const Trust = () => (
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
         <div className="flex flex-col items-center gap-2">
           <span className="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mb-2">Authorized Distributor</span>
-          <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain" referrerPolicy="no-referrer" />
+          <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
         </div>
         <div className="hidden md:block h-8 w-px bg-gray-200" />
         <div className="flex flex-col items-center gap-2">
           <span className="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mb-2">Manufacturer</span>
-          <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain" referrerPolicy="no-referrer" />
+          <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
         </div>
         <div className="hidden md:block h-8 w-px bg-gray-200" />
         <p className="text-gray-500 font-medium italic text-center max-w-sm">
