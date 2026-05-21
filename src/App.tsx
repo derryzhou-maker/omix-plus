@@ -127,6 +127,7 @@ const Hero = () => {
               width={640}
               height={640}
               loading="eager"
+              fetchPriority="high"
             />
           </picture>
         </div>

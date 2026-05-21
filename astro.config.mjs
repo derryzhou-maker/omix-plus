@@ -8,6 +8,7 @@ export default defineConfig({
   outDir: 'dist',
   build: {
     inlineStylesheets: 'always',
+    assets: 'assets',
   },
   server: {
     port: 3000,
