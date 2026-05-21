@@ -103,7 +103,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-balance">
             Master Every Roast with Scientific Precision
           </h1>
-          <p className="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed">
+          <p className="text-xl text-gray-300 mb-10 max-w-lg leading-relaxed">
             See roast consistency, moisture, and density — all in one device. 
             The professional standard for modern coffee roasting.
           </p>
@@ -117,7 +117,7 @@ const Hero = () => {
             </a>
           </div>
           
-          <p className="mt-8 text-sm text-gray-500 font-medium italic">
+          <p className="mt-8 text-sm text-gray-300 font-medium italic">
             "Bringing lab-level precision to every roaster." — SCA
           </p>
         </motion.div>
@@ -229,7 +229,7 @@ const UseCases = () => (
           <div key={i} className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
             <use.icon className="text-brand-orange mb-4" size={32} />
             <h3 className="text-xl font-semibold mb-3">{use.title}</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{use.desc}</p>
+            <p className="text-gray-300 text-sm leading-relaxed">{use.desc}</p>
           </div>
         ))}
       </div>
@@ -272,9 +272,9 @@ const ComparisonTable = () => {
                       <CheckCircle2 size={16} /> {f.omix}
                     </div>
                   </td>
-                  <td className="p-6 text-gray-500 text-sm">
+                  <td className="p-6 text-gray-600 text-sm">
                     {f.traditional.includes("No") || f.traditional.includes("Requires") || f.traditional.includes("Multiple") || f.traditional.includes("Technical") ? (
-                      <span className="text-red-500 flex items-center gap-2 font-medium"><X size={16} /> {f.traditional}</span>
+                      <span className="text-red-600 flex items-center gap-2 font-medium"><X size={16} /> {f.traditional}</span>
                     ) : f.traditional}
                   </td>
                 </tr>
@@ -304,7 +304,7 @@ const DataShowcase = () => (
       </div>
       <div className="pt-4">
         <h2 className="text-4xl font-bold mb-4">Lab-Level Coffee Analysis, Now on Your Desk</h2>
-        <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+        <p className="text-lg text-gray-300 mb-6 leading-relaxed">
           Omix Plus captures key coffee parameters in seconds—giving you a complete, data-driven understanding of every roast. 
           Analyze moisture, density, roast level, and water activity in one intuitive dashboard.
         </p>
@@ -356,9 +356,9 @@ const ROISection = () => (
                 <Scale size={24} />
               </div>
               <div>
-                <h4 className="font-bold text-lg">Reduce Waste</h4>
-                <p className="text-gray-500">"Save up to 15% of green beans by catching roast defects early."*</p>
-                <p className="text-[10px] text-gray-400 mt-1 uppercase">*Based on internal testing/industry benchmarks</p>
+                <h3 className="font-bold text-lg text-gray-900">Reduce Waste</h3>
+                <p className="text-gray-600">"Save up to 15% of green beans by catching roast defects early."*</p>
+                <p className="text-[10px] text-gray-500 font-semibold mt-1 uppercase">*Based on internal testing/industry benchmarks</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -366,8 +366,8 @@ const ROISection = () => (
                 <Zap size={24} />
               </div>
               <div>
-                <h4 className="font-bold text-lg">Maximum Efficiency</h4>
-                <p className="text-gray-500">"Cut analysis time from 10 minutes to just 60 seconds."</p>
+                <h3 className="font-bold text-lg text-gray-900">Maximum Efficiency</h3>
+                <p className="text-gray-600">"Cut analysis time from 10 minutes to just 60 seconds."</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -375,8 +375,8 @@ const ROISection = () => (
                 <ShieldCheck size={24} />
               </div>
               <div>
-                <h4 className="font-bold text-lg">Rock-Solid Consistency</h4>
-                <p className="text-gray-500">Ensure the same flavor profile across 100+ batches.</p>
+                <h3 className="font-bold text-lg text-gray-900">Rock-Solid Consistency</h3>
+                <p className="text-gray-600">Ensure the same flavor profile across 100+ batches.</p>
               </div>
             </div>
           </div>
@@ -488,7 +488,7 @@ const CTASection = () => (
           className="relative z-10"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Ready to Elevate Your Roasting?</h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Book a 15-minute free live demo to see how Omix Plus fits into your professional workflow.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -523,7 +523,7 @@ const Footer = () => (
             loading="lazy"
             referrerPolicy="no-referrer"
           />
-          <p className="text-gray-500 max-w-sm text-center md:text-left">
+          <p className="text-gray-600 max-w-sm text-center md:text-left">
             Activo Technology is the authorized distributor of DiFluid, 
             providing lab-level precision tools for the specialty coffee industry.
           </p>
@@ -535,7 +535,7 @@ const Footer = () => (
         </div>
         <div className="grid grid-cols-2 gap-8">
           <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Solutions</h4>
+            <h3 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Solutions</h3>
             <div className="flex flex-col gap-4 text-sm text-gray-600">
               <a href="https://activo-tech.com" target="_blank" className="hover:text-brand-orange transition-colors">Official Website</a>
               <a href="https://activo-tech.com/contact-us-for-an-exclusive-offer/" className="hover:text-brand-orange transition-colors">Exclusive Offer</a>
@@ -543,7 +543,7 @@ const Footer = () => (
             </div>
           </div>
           <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Support</h4>
+            <h3 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Support</h3>
             <div className="flex flex-col gap-4 text-sm text-gray-600">
               <a href="https://activo-tech.com/contact-us-for-an-exclusive-offer/" className="hover:text-brand-orange transition-colors">Contact Us</a>
               <a href="https://activo-tech.com/wp-content/uploads/2025/11/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-brand-orange transition-colors">Privacy Policy</a>
@@ -553,8 +553,8 @@ const Footer = () => (
         </div>
       </div>
       <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-xs text-gray-400">© 2026 Activo Technology Limited. All Rights Reserved.</p>
-        <p className="text-xs text-gray-400">DiFluid Omix Plus - Authorized Distribution Site</p>
+        <p className="text-xs text-gray-600 font-semibold">© 2026 Activo Technology Limited. All Rights Reserved.</p>
+        <p className="text-xs text-gray-600 font-semibold">DiFluid Omix Plus - Authorized Distribution Site</p>
       </div>
     </div>
   </footer>
@@ -603,18 +603,18 @@ export default function App() {
 const Trust = () => (
   <section className="py-12 border-y border-gray-100 bg-gray-50/30 overflow-hidden">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12 opacity-55 grayscale hover:grayscale-0 transition-all duration-700">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mb-2">Authorized Distributor</span>
+          <span className="text-[10px] text-gray-600 uppercase font-bold tracking-[0.2em] mb-2">Authorized Distributor</span>
           <img src="/activo_logo.png" alt="Activo" className="h-8 object-contain w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
         </div>
         <div className="hidden md:block h-8 w-px bg-gray-200" />
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mb-2">Manufacturer</span>
+          <span className="text-[10px] text-gray-600 uppercase font-bold tracking-[0.2em] mb-2">Manufacturer</span>
           <img src="/difluid_logo.png" alt="DiFluid" className="h-8 object-contain w-auto" width={96} height={32} loading="lazy" referrerPolicy="no-referrer" />
         </div>
         <div className="hidden md:block h-8 w-px bg-gray-200" />
-        <p className="text-gray-500 font-medium italic text-center max-w-sm">
+        <p className="text-gray-700 font-semibold italic text-center max-w-sm">
           "The new standard for precision in specialty coffee roasting."
         </p>
       </div>
