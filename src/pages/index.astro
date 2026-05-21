@@ -1,6 +1,8 @@
 ---
 import App from '../App.tsx';
 import '../index.css';
+import omixDevice from '../assets/omix_device.avif';
+import omixDeviceMobile from '../assets/omix_device_mobile.avif';
 ---
 
 <!doctype html>
@@ -18,22 +20,20 @@ import '../index.css';
     <meta property="og:url" content="https://omixplus.activo-tech.com/" />
     <meta property="og:title" content="Omix Plus | Scientific Coffee Analysis by Activo" />
     <meta property="og:description" content="Analyse bean moisture, density, and roast degree in seconds. Discover laboratory-grade coffee roasting precision tools by Activo Technology." />
-    <meta property="og:image" content="https://omixplus.activo-tech.com/omix_device.avif" />
+    <meta property="og:image" content={omixDevice.src} />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://omixplus.activo-tech.com/" />
     <meta property="twitter:title" content="Omix Plus | Scientific Coffee Analysis" />
-    <meta property="twitter:image" content="https://omixplus.activo-tech.com/omix_device.avif" />
-    <link rel="preload" as="image" href="/omix_device.avif" type="image/avif" /> 
+    <meta property="twitter:image" content={omixDevice.src} />
+    <link rel="preload" as="image" href={omixDevice.src} type="image/avif" media="(min-width: 641px)" /> 
+    <link rel="preload" as="image" href={omixDeviceMobile.src} type="image/avif" media="(max-width: 640px)" /> 
 
     <!-- Performance: Preconnect to external resource domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={""} />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-    </noscript>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
